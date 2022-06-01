@@ -29,7 +29,6 @@ const Home = () => {
                     key={vm.ad.id}
                     onDeleteClick={() => onDeleteClick(vm.ad.id)}
                     canDelete={vm.canDelete} />)}
-
             </div>
         </div>
     </div>)

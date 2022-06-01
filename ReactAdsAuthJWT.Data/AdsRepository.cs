@@ -42,5 +42,10 @@ namespace ReactAdsAuthJWT.Data
             using var ctx = new AdsDataContext(_connectionString);
             return ctx.Ads.Include(a => a.User).Where(a => a.User.Email == email).ToList();
         }
+
+        public bool IsMyAd(string email, int id)
+        {
+            return GetMyAds(email).Any(a => a.ID == id);
+        }
     }
 }

@@ -70,6 +70,11 @@ namespace ReactAdsAuthJWT.Web.Controllers
         public void DeleteAd(Ad ad)
         {
             var repo = new AdsRepository(_connectionString);
+            string email = User.FindFirst("user").Value;
+            if(!repo.IsMyAd(email, ad.ID))
+            {
+                return;
+            }
             repo.DeleteAd(ad.ID);
 
         }
